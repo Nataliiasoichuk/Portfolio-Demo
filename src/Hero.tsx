@@ -1,6 +1,7 @@
 import leafStrip from "./assets/leaf-strip.png";
 import portrait from "./assets/portrait.png";
 import dot from "./assets/dot.svg";
+import DewAnimation from "./DewAnimation";
 
 // Social links are placeholders until the real profile URLs are provided.
 const contacts = [
@@ -12,6 +13,7 @@ const contacts = [
 export default function Hero() {
   return (
     <main className="hero">
+      <DewAnimation />
       <div className="hero__fade" aria-hidden />
       <img className="hero__leaf" src={leafStrip} alt="" />
 

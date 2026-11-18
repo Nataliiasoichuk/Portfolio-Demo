@@ -21,13 +21,17 @@ a { color: inherit; text-decoration: none; }
   height: 1024px;
   margin: 0 auto;
   overflow: hidden;
-  background: var(--teal-900) url("./assets/hero-bg.svg") center / 100% 100% no-repeat;
+  background: var(--teal-900);
 }
 @media (max-width: 1439px) {
   .hero { zoom: calc(100vw / 1440px); }
 }
 
 .hero > * { position: absolute; }
+
+/* Golden leaf veins + "Morning dew" intro animation (see DewAnimation.tsx) */
+.dew { left: 0; top: 0; width: 1440px; height: 1024px; pointer-events: none; }
+.dew__fx * { transform-box: fill-box; transform-origin: center; }
 
 .hero__fade {
   inset: 0;
