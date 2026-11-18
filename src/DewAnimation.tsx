@@ -1,6 +1,15 @@
 import { useEffect, useMemo, useRef } from "react";
 import { buildLeaf, lateralPath, polylinePath, tertiaryPath } from "./dew/leafGeometry";
-import { playMorningDew } from "./dew/morningDew";
+import { DESKTOP_DEW, type DewOptions, playMorningDew } from "./dew/morningDew";
+
+// On smaller artboards the leaf is scaled and shifted (see styles.css), so the drop
+// lands higher up the midrib, in a spot that is free of the headline and portrait.
+const DEW_BY_SCREEN: { query: string; opts: DewOptions }[] = [
+  { query: "(max-width: 599px)", opts: { impactAt: 0.75, fall: 190, dropScale: 1.7 } },
+  { query: "(max-width: 1023px)", opts: { impactAt: 0.7, fall: 60, dropScale: 1.35 } },
+];
+
+const dewOptions = () => DEW_BY_SCREEN.find((s) => window.matchMedia(s.query).matches)?.opts ?? DESKTOP_DEW;
 
 /**
  * Golden leaf veins behind the first screen, with the "Morning dew" intro:
@@ -21,7 +30,7 @@ export default function DewAnimation() {
     let cancelled = false;
     // Start once the fonts are in, so the headline does not jump while the drop falls.
     (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => {
-      if (!cancelled) stop = playMorningDew(glow, fx, leaf);
+      if (!cancelled) stop = playMorningDew(glow, fx, leaf, dewOptions());
     });
     return () => {
       cancelled = true;

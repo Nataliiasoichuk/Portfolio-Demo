@@ -6,10 +6,19 @@ import { MIDRIB_STEPS, type Leaf, type Point, lateralPath, polylinePath, tertiar
 
 const NS = "http://www.w3.org/2000/svg";
 
-/** Where the drop lands, as a position along the midrib (0 = stem, 1 = tip). */
-const IMPACT_AT = 0.35;
-/** Speed of the light along the veins, px per second. */
+/** Speed of the light along the veins, in leaf units (desktop px) per second. */
 const SPEED = 520;
+
+export interface DewOptions {
+  /** Where the drop lands, as a position along the midrib (0 = stem, 1 = tip). */
+  impactAt: number;
+  /** How far the drop falls before it lands, in leaf units. */
+  fall: number;
+  /** Size of the drop. */
+  dropScale: number;
+}
+
+export const DESKTOP_DEW: DewOptions = { impactAt: 0.35, fall: 310, dropScale: 1.15 };
 
 type Attrs = Record<string, string | number>;
 
@@ -20,7 +29,7 @@ const el = (tag: string, attrs: Attrs, parent: Element) => {
   return node as SVGGraphicsElement;
 };
 
-export function playMorningDew(glow: SVGGElement, fx: SVGGElement, leaf: Leaf): () => void {
+export function playMorningDew(glow: SVGGElement, fx: SVGGElement, leaf: Leaf, opts: DewOptions = DESKTOP_DEW): () => void {
   const anims: Animation[] = [];
   const timers: number[] = [];
   const animate = (node: Element, frames: Keyframe[], opts: KeyframeAnimationOptions) => {
@@ -50,18 +59,18 @@ export function playMorningDew(glow: SVGGElement, fx: SVGGElement, leaf: Leaf): 
     });
   };
 
-  const kI = Math.round(IMPACT_AT * MIDRIB_STEPS);
+  const kI = Math.round(opts.impactAt * MIDRIB_STEPS);
   const [ix, iy]: Point = leaf.midrib[kI];
 
   /* ---- the dew drop ---- */
-  const scale = 1.15;
+  const scale = opts.dropScale;
   const formMs = 380 * scale + 120;
   const holdMs = 300;
   const fallMs = 660;
   const startMs = 350;
   const total = formMs + holdMs + fallMs;
   const impact = startMs + total;
-  const fallFrom = iy - 310;
+  const fallFrom = iy - opts.fall;
 
   const dropWrap = el("g", {}, fx);
   const dropMove = el("g", {}, dropWrap);

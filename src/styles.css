@@ -13,8 +13,9 @@ html, body { background: var(--teal-900); }
 body { font-family: var(--font-body); color: var(--cream); }
 a { color: inherit; text-decoration: none; }
 
-/* Fixed 1440×1024 design canvas, scaled down on narrower screens via zoom
-   (first-screen only; full responsive layout comes later). */
+/* The first screen uses three fixed artboards from Figma: desktop 1440×1024,
+   tablet 768×834 (≤1023px) and phone 390×1039 (≤599px). Hero.tsx sets
+   --hero-zoom so the artboard fills the window width. */
 .hero {
   position: relative;
   width: 1440px;
@@ -22,9 +23,7 @@ a { color: inherit; text-decoration: none; }
   margin: 0 auto;
   overflow: hidden;
   background: var(--teal-900);
-}
-@media (max-width: 1439px) {
-  .hero { zoom: calc(100vw / 1440px); }
+  zoom: var(--hero-zoom, 1);
 }
 
 .hero > * { position: absolute; }
@@ -131,3 +130,124 @@ a { color: inherit; text-decoration: none; }
 }
 .contacts__email { font-weight: 600; }
 .contacts__link:hover, .contacts__email:hover { text-decoration: underline; }
+
+/* Pieces that only appear on smaller artboards */
+.hero__leaf-shade { display: none; }
+.location__row { display: contents; }
+.sep-narrow { display: none; }
+.btn-resume__short { display: none; }
+.intro__more { display: inline; }
+
+.nav__burger {
+  position: relative; display: none; flex-direction: column; justify-content: space-between;
+  width: 24px; height: 16px; background: none; border: 0; cursor: pointer;
+}
+.nav__burger::after { content: ""; position: absolute; inset: -14px -10px; } /* larger tap target */
+.nav__burger span { display: block; height: 2px; border-radius: 1px; background: var(--cream); }
+.nav__burger:focus-visible, .btn:focus-visible, .btn-resume:focus-visible, .menu__link:focus-visible {
+  outline: 2px solid var(--gold); outline-offset: 4px;
+}
+
+.menu {
+  z-index: 5; top: 88px; right: 40px; min-width: 220px;
+  display: flex; flex-direction: column; gap: 2px; padding: 10px;
+  background: var(--teal-900); border: 1px solid var(--teal-700); border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(4, 20, 22, 0.5);
+}
+.menu[hidden] { display: none; }
+.menu__link { padding: 12px 14px; border-radius: 8px; font-weight: 500; font-size: 16px; }
+.menu__link:hover { background: rgba(244, 241, 234, 0.06); }
+.menu__link--active { color: var(--gold); }
+@media (min-width: 1024px) { .menu { display: none; } }
+
+/* ---------- Tablet artboard: 768 × 834 (Figma "Screen 1 — Hero (C2) · Tablet 768") ---------- */
+@media (max-width: 1023px) {
+  .hero { width: 768px; height: 834px; }
+  .dew { left: -180px; top: 24px; width: 1152px; height: 819.2px; }
+  .hero__fade {
+    background: linear-gradient(to right, var(--teal-900) 0%, rgba(18, 62, 68, 0.9) 30%, rgba(18, 62, 68, 0) 56%);
+  }
+  .hero__leaf { top: 0; width: 120px; height: 666px; }
+
+  .hero__header { left: 40px; top: 32px; width: 688px; height: 41px; }
+  .brand { gap: 50px; }
+  .nav { gap: 24px; }
+  .nav__link, .nav__divider { display: none; }
+  .nav__burger { display: flex; }
+
+  .hero__rail { left: 120px; top: 120px; height: 546px; }
+  .location { left: 40px; top: 120px; width: 70px; }
+  .hero__scroll { left: 40px; top: 648px; }
+
+  .headline { left: 152px; top: 120px; width: 576px; height: 124px; font-size: 56px; letter-spacing: -0.56px; }
+  .headline__a { left: 0; top: 0; }
+  .headline__b { left: 270px; top: 0; }
+  .headline__c { left: 97px; top: 62px; }
+  .headline__d { left: 372px; top: 62px; }
+
+  .intro { left: 152px; top: 316px; width: 352px; height: 350px; }
+  .intro__more { display: block; margin-top: 1.55em; }
+  .portrait { left: 540px; top: 316px; }
+
+  .hero__footer-line { left: 40px; top: 730px; width: 688px; }
+  .contacts { left: 40px; top: 754px; width: 688px; height: 17px; }
+}
+
+/* ---------- Phone artboard: 390 × 1039 (Figma "Screen 1 — Hero (C2) · Mobile 390") ---------- */
+@media (max-width: 599px) {
+  .hero { width: 390px; height: 1039px; }
+  .dew { left: -260px; top: 142px; width: 864px; height: 614.4px; }
+  .dew__veins { opacity: 0.4; }
+  .hero__fade, .hero__rail, .hero__scroll { display: none; }
+  .hero__leaf { top: 72px; width: 390px; height: 96px; }
+  .hero__leaf-shade {
+    display: block; left: 0; top: 72px; width: 390px; height: 96px;
+    background: linear-gradient(to right, rgba(18, 62, 68, 0.72), rgba(18, 62, 68, 0.35));
+  }
+
+  .hero__header { left: 20px; top: 16px; width: 350px; height: 38px; }
+  .brand { gap: 8px; }
+  .brand__logo { font-size: 32px; letter-spacing: -1.28px; width: 50px; }
+  .brand__text { gap: 1px; }
+  .brand__name { font-size: 15px; }
+  .brand__role { font-size: 12px; }
+  .nav { gap: 16px; }
+  .btn-resume { padding: 8px 12px; font-size: 13px; }
+  .btn-resume__full { display: none; }
+  .btn-resume__short { display: inline; }
+  .menu { top: 64px; right: 20px; }
+
+  .location { left: 20px; top: 94px; width: 350px; gap: 14px; }
+  .location__row { display: flex; align-items: center; gap: 6px; }
+  .location__row:first-child { gap: 8px; }
+  .location__title, .location__sub { font-size: 13px; line-height: 16px; }
+  .location__title--gap { margin-top: 0; }
+  .location__sub::before { content: "· "; }
+  .sep-wide { display: none; }
+  .sep-narrow { display: inline; }
+
+  .headline { left: 20px; top: 196px; width: 350px; height: 225px; font-size: 52px; letter-spacing: -0.52px; }
+  .headline__a { left: 0; top: 0; }
+  .headline__c { left: 90px; top: 56px; }
+  .headline__b { left: 0; top: 112px; }
+  .headline__d { left: 223px; top: 168px; }
+
+  .intro { left: 20px; top: 449px; width: 350px; height: 455px; }
+  .intro__lead { font-size: 24px; letter-spacing: -0.24px; text-align: center; margin-bottom: 16px; }
+  .intro__body { width: 190px; }
+  .btn { padding: 17px 24px; }
+  .btn--secondary { padding: 15.5px 24px; }
+
+  .portrait { left: 230px; top: 495px; width: 140px; height: 261px; }
+  .portrait__glass { border-radius: 12px; }
+  .portrait__img, .portrait__shade, .portrait__sheen {
+    left: 7px; top: 7px; width: 125px; height: 246px; border-radius: 12px;
+  }
+
+  .hero__footer-line { left: 20px; top: 936px; width: 350px; }
+  .contacts {
+    left: 20px; top: 956px; width: 350px; height: auto;
+    flex-wrap: wrap; column-gap: 24px; row-gap: 12px;
+  }
+  .contacts__email { flex-basis: 100%; font-size: 15px; }
+}
