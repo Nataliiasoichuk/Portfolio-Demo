@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+/*
+ * Design tokens go here (colors, type scale, spacing, radii) as CSS variables
+ * exposed to Tailwind through an @theme block. Intentionally empty for now:
+ * the token set comes first, then the components built on it.
+ */

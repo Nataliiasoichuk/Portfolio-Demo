@@ -1,6 +1,10 @@
 node_modules
+.next
+out
 dist
 *.local
+.env*
 .vercel
 .DS_Store
-tsconfig.tsbuildinfo
+*.tsbuildinfo
+next-env.d.ts
