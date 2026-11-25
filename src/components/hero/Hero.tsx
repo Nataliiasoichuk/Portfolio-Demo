@@ -1,8 +1,12 @@
+"use client";
+
 import { useEffect, useLayoutEffect, useState } from "react";
+import Image from "next/image";
 import leafStrip from "./assets/leaf-strip.png";
 import portrait from "./assets/portrait.png";
 import dot from "./assets/dot.svg";
 import DewAnimation from "./DewAnimation";
+import "./hero.css";
 
 // Social links are placeholders until the real profile URLs are provided.
 const contacts = [
@@ -54,7 +58,7 @@ export default function Hero() {
     <main className="hero">
       <DewAnimation />
       <div className="hero__fade" aria-hidden />
-      <img className="hero__leaf" src={leafStrip} alt="" />
+      <Image className="hero__leaf" src={leafStrip} alt="" priority />
       <div className="hero__leaf-shade" aria-hidden />
 
       <header className="hero__header">
@@ -109,7 +113,7 @@ export default function Hero() {
       <div className="hero__rail" aria-hidden />
       <aside className="location">
         <div className="location__row">
-          <img className="location__dot" src={dot} alt="" />
+          <Image className="location__dot" src={dot} alt="" width={8} height={8} />
           <p className="location__title">Open to work</p>
           <p className="location__sub">Full-time junior role</p>
         </div>
@@ -136,7 +140,7 @@ export default function Hero() {
           <p className="intro__body">
             After 20+ years in international trade, I followed my lifelong love of design — from
             interiors and gardens to crafts and drawing — into UI/UX.{" "}
-            <span className="intro__more">Let's discover the art of design together.</span>
+            <span className="intro__more">Let&apos;s discover the art of design together.</span>
           </p>
         </div>
         <div className="intro__buttons">
@@ -150,7 +154,7 @@ export default function Hero() {
 
       <div className="portrait">
         <div className="portrait__glass" />
-        <img className="portrait__img" src={portrait} alt="Portrait of Nataliia Soichuk" />
+        <Image className="portrait__img" src={portrait} alt="Portrait of Nataliia Soichuk" priority />
         <div className="portrait__shade" />
         <div className="portrait__sheen" />
       </div>
