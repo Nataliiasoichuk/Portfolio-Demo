@@ -12,7 +12,7 @@ import "./hero.css";
 const contacts = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/nataliia-soichuk-474858375" },
   { label: "Behance", href: "#" },
-  { label: "Facebook", href: "#" },
+  { label: "Facebook", href: "https://facebook.com/nataliia.soichuk" },
 ];
 
 const navLinks = [
