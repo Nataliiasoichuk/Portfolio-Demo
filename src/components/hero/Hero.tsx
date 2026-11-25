@@ -11,7 +11,6 @@ import "./hero.css";
 // Social links are placeholders until the real profile URLs are provided.
 const contacts = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/nataliia-soichuk-474858375" },
-  { label: "Behance", href: "#" },
   { label: "Facebook", href: "https://facebook.com/nataliia.soichuk" },
 ];
 
