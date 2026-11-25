@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useMemo, useRef } from "react";
 import { buildLeaf, lateralPath, polylinePath, tertiaryPath } from "./dew/leafGeometry";
 import { DESKTOP_DEW, type DewOptions, playMorningDew } from "./dew/morningDew";
@@ -17,7 +19,7 @@ const dewOptions = () => DEW_BY_SCREEN.find((s) => window.matchMedia(s.query).ma
  * Plays once per page load; skipped when the visitor prefers reduced motion.
  */
 export default function DewAnimation() {
-  const leaf = useMemo(buildLeaf, []);
+  const leaf = useMemo(() => buildLeaf(), []);
   const glowRef = useRef<SVGGElement>(null);
   const fxRef = useRef<SVGGElement>(null);
 
