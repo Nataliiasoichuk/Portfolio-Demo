@@ -10,7 +10,7 @@ import "./hero.css";
 
 // Social links are placeholders until the real profile URLs are provided.
 const contacts = [
-  { label: "LinkedIn", href: "#" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/nataliia-soichuk-474858375" },
   { label: "Behance", href: "#" },
   { label: "Facebook", href: "#" },
 ];
@@ -165,7 +165,12 @@ export default function Hero() {
           nataliiasoichuk@gmail.com
         </a>
         {contacts.map((c) => (
-          <a key={c.label} className="contacts__link" href={c.href}>
+          <a
+            key={c.label}
+            className="contacts__link"
+            href={c.href}
+            {...(c.href.startsWith("http") && { target: "_blank", rel: "noopener noreferrer" })}
+          >
             {c.label} ↗
           </a>
         ))}
