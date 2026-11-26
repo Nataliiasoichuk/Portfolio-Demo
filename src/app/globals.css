@@ -89,7 +89,10 @@ body {
   color: var(--color-ink);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* In the base layer so Tailwind utilities (text-accent, underline) can override it. */
+@layer base {
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
