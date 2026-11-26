@@ -6,6 +6,14 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 Єдине джерело значень — блок `@theme` у `src/app/globals.css`. Тут лише показ: значення беруться зі змінних CSS, тож сторінка завжди збігається з кодом. Назви токенів — за роллю, не за кольором. Стандартні кольори, розміри тексту й радіуси Tailwind скинуті: доступне тільки те, що є нижче.
 
+## Ліміти системи
+
+- Кольорів: 7 ролей.
+- Розмірів тексту: не більше 9 (зараз 8: п'ять базових і три додаткові з окремою роллю).
+- Радіусів: 2 (`control` і `card`).
+- Пропорцій: по одній на тип картинки (`portrait`, `cover`).
+- Відступів у компонентах: 8, 12, 16, 24, 32 px. Розкладка сторінки має три прийняті винятки: `section`, `block`, `offset`.
+
 ## Кольори
 
 <ColorPalette>
@@ -21,7 +29,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
   />
   <ColorItem
     title="line"
-    subtitle="Розділювачі й лінії. Декор, не межа поля · border-line"
+    subtitle="Розділювачі й рамки карток. Лише декор: 1,5:1 до canvas, тому не для межі поля чи кнопки · border-line"
     colors={{ line: 'var(--color-line)' }}
   />
   <ColorItem
@@ -36,7 +44,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
   />
   <ColorItem
     title="ink-muted"
-    subtitle="Приглушений текст, тільки на canvas · text-ink-muted"
+    subtitle="Приглушений текст на canvas · text-ink-muted. Також межа поля й кнопки без заливки · border-ink-muted (5,87:1 до canvas)"
     colors={{ 'ink-muted': 'var(--color-ink-muted)' }}
   />
   <ColorItem
@@ -112,10 +120,6 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
     <div className="rounded-control bg-canvas aspect-square w-full mt-2" />
   </div>
   <div>
-    <code>rounded-panel</code>
-    <div className="rounded-panel bg-canvas aspect-square w-full mt-2" />
-  </div>
-  <div>
     <code>rounded-card</code>
     <div className="rounded-card bg-canvas aspect-square w-full mt-2" />
   </div>
@@ -150,11 +154,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
   </div>
   <div>
     <code>aspect-cover</code>
-    <div className="aspect-cover bg-canvas w-full mt-2 rounded-panel" />
-  </div>
-  <div>
-    <code>aspect-portrait-card</code>
-    <div className="aspect-portrait-card bg-canvas w-full mt-2 rounded-card" />
+    <div className="aspect-cover bg-canvas w-full mt-2 rounded-card" />
   </div>
 </div>
 

@@ -42,7 +42,7 @@
 .nav__link--active { color: var(--color-accent); text-decoration: underline; }
 .nav__divider { width: 1px; height: 16px; background: var(--color-line); }
 .btn-resume {
-  border: 1.5px solid var(--color-accent); color: var(--color-accent); border-radius: var(--radius-control);
+  border: 1.5px solid var(--color-ink-muted); color: var(--color-accent); border-radius: var(--radius-control);
   padding: 10px 18px; font-weight: 600; font-size: 15px;
 }
 
@@ -86,7 +86,7 @@
 .btn--primary:hover { filter: brightness(1.08); }
 .btn__arrow { font-size: 18px; }
 .btn--secondary {
-  border: 1.5px solid var(--color-ink); padding: 16px 24px; font-weight: 500; font-size: 15px;
+  border: 1.5px solid var(--color-ink-muted); padding: 16px 24px; font-weight: 500; font-size: 15px;
 }
 .btn--secondary:hover { background: color-mix(in srgb, var(--color-ink) 8%, transparent); }
 
@@ -121,7 +121,7 @@
    On the phone it becomes a full-width band instead (see the phone artboard). */
 .hero__leaf-shade {
   left: 80px; top: 132px; width: 106px; height: 212px;
-  border-radius: var(--radius-panel);
+  border-radius: var(--radius-card);
   background: color-mix(in srgb, var(--color-canvas) 84%, transparent);
 }
 
@@ -144,7 +144,7 @@
 .menu {
   z-index: 5; top: 88px; right: 40px; min-width: 220px;
   display: flex; flex-direction: column; gap: 2px; padding: 10px;
-  background: var(--color-canvas); border: 1px solid var(--color-line); border-radius: var(--radius-panel);
+  background: var(--color-canvas); border: 1px solid var(--color-line); border-radius: var(--radius-card);
   box-shadow: 0 16px 40px rgba(4, 20, 22, 0.5);
 }
 .menu[hidden] { display: none; }
@@ -237,9 +237,9 @@
   .btn--secondary { padding: 15.5px 24px; }
 
   .portrait { left: 230px; top: 495px; width: 140px; height: 261px; }
-  .portrait__glass { border-radius: var(--radius-panel); }
+  .portrait__glass { border-radius: var(--radius-card); }
   .portrait__img, .portrait__shade, .portrait__sheen {
-    left: 7px; top: 7px; width: 125px; height: 246px; border-radius: var(--radius-panel);
+    left: 7px; top: 7px; width: 125px; height: 246px; border-radius: var(--radius-card);
   }
 
   .hero__footer-line { left: 20px; top: 936px; width: 350px; }

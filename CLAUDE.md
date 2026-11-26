@@ -21,12 +21,15 @@
 
 - Кольори (за ролями): `canvas` (фон сторінки), `surface` (картки), `line` (розділювачі), `accent`, `ink` (текст), `ink-muted` (приглушений текст), `danger` (помилка). Класи: `bg-canvas`, `bg-surface`, `border-line`, `bg-accent`, `text-ink`, `text-ink-muted`, `text-danger`, `border-danger`.
 - Контраст: на `surface` текст лише `ink`; `ink-muted` і `accent` там нижче 4,5:1. Текст помилки лише на `canvas`.
+- Рамки: `line` лише декор (розділювачі, рамки карток), 1,5:1 до `canvas`. Межа поля форми й кнопки без заливки: `border-ink-muted` (не менше 3:1 до фону). Помилка: `border-danger` і `text-danger`, лише на `canvas`.
 - Шрифти: `font-display` (Space Grotesk), `font-body` (Inter).
 - Розміри тексту (розмір, висота рядка, трекінг і жирність разом): `text-caption`, `text-body`, `text-lead`, `text-card-title`, `text-heading`, `text-title`, `text-display`, `text-logo`.
-- Радіуси: `rounded-control` (кнопки, поля), `rounded-panel` (обкладинка проєкту, меню, плашка), `rounded-card` (картка-портрет).
-- Пропорції картинок: `aspect-portrait`, `aspect-portrait-card`, `aspect-cover` (обкладинка проєкту, 5:6).
+- Радіуси (лише два): `rounded-control` (кнопки, поля, 8 px), `rounded-card` (картки, обкладинка, меню, портрет, 12 px).
+- Пропорції картинок (по одній на тип): `aspect-portrait` (портрет), `aspect-cover` (обкладинка проєкту, 5:6).
 - Ширина контенту сторінки: `max-w-page`.
 - Відступи: крок 4 px, у компонентах лише числа 2, 3, 4, 6, 8 (8, 12, 16, 24, 32 px), наприклад `p-4`, `gap-6`. Великі кроки розкладки: `section`, `block`, `offset` (`py-section`, `mt-block`, `lg:mt-offset`).
+- Ліміти: 7 ролей кольору, не більше 9 розмірів тексту, 2 радіуси, по одній пропорції на тип картинки. Новий токен понад ліміт додаємо лише після окремого рішення.
+- Прийняті винятки: кроки розкладки `section` (112), `block` (48), `offset` (64) лишаються поза набором відступів 8–32.
 - Ще немає: токен для кольору заглушки обкладинки (тимчасова).
 
 ## Компоненти
@@ -36,7 +39,7 @@
 - `Button` (`src/components/button`): варіанти `primary`, `secondary`, `outline`, розміри `md`, `sm`, стрілка, `disabled`; з `href` стає посиланням.
 - `ProjectCard` (`src/components/project-card`): картка проєкту з обкладинкою (або заглушкою), номером, назвою, типом і посиланням на кейс; `disabled`, коли сторінки кейсу ще немає.
 - `ProjectsSection` (`src/components/projects`): блок «Три проєкти» на головній, три `ProjectCard`.
-- `Hero` (`src/components/hero`): перший екран; поки на власному `hero.css`, на токени переведені кольори й радіуси.
+- `Hero` (`src/components/hero`): перший екран; поки на власному `hero.css`, на токени переведені кольори й радіуси (рамки кнопок без заливки теж `ink-muted`).
 
 ## Правила
 

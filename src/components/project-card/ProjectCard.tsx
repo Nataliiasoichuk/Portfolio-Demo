@@ -37,7 +37,7 @@ export function ProjectCard({
   const isLink = Boolean(href) && !disabled;
   const body = (
     <>
-      <div className="relative flex aspect-cover w-full items-center justify-center overflow-hidden rounded-panel bg-surface">
+      <div className="relative flex aspect-cover w-full items-center justify-center overflow-hidden rounded-card bg-surface">
         {cover ? (
           <Image src={cover} alt={coverAlt} fill sizes="(min-width: 1024px) 400px, 100vw" className="object-cover" />
         ) : (

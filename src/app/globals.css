@@ -11,10 +11,10 @@
   --color-*: initial;
   --color-canvas: #123e44; /* page background */
   --color-surface: #2e5a60; /* cards and panels (same value as line, see Tokens page) */
-  --color-line: #2e5a60; /* dividers */
+  --color-line: #2e5a60; /* decoration only: dividers and card borders, never a field or button border */
   --color-accent: #c8a86a; /* buttons, highlights, links */
   --color-ink: #f4f1ea; /* text */
-  --color-ink-muted: #a9bcb7; /* secondary text */
+  --color-ink-muted: #a9bcb7; /* secondary text; border of fields and unfilled buttons (3:1 or better on canvas) */
   --color-danger: #ff8a80; /* error text and invalid-field border (proposed, not in the Figma) */
 
   /* Fonts (the variables come from next/font, see src/app/fonts.ts) */
@@ -60,13 +60,11 @@
   /* Corner radii */
   --radius-*: initial;
   --radius-control: 8px; /* buttons, fields */
-  --radius-card: 16px; /* cards, portrait */
-  --radius-panel: 12px; /* project cover, menu, label plate */
+  --radius-card: 12px; /* cards, project cover, portrait, menu, label plate */
 
   /* Image proportions (width / height) */
   --aspect-*: initial;
   --aspect-portrait: 168 / 330; /* portrait photo */
-  --aspect-portrait-card: 188 / 350; /* portrait with its glass frame */
   --aspect-cover: 5 / 6; /* project cover (400 x 480) */
 
   /* Page content width */

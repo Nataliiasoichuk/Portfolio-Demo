@@ -26,8 +26,8 @@ const base =
 
 const variants: Record<ButtonVariant, string> = {
   primary: "bg-accent text-canvas hover:brightness-110",
-  secondary: "border-2 border-ink text-ink hover:bg-ink/10",
-  outline: "border-2 border-accent text-accent hover:bg-accent/10",
+  secondary: "border-2 border-ink-muted text-ink hover:bg-ink/10",
+  outline: "border-2 border-ink-muted text-accent hover:bg-accent/10 hover:text-ink",
 };
 
 const sizes: Record<ButtonSize, string> = {

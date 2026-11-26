@@ -34,7 +34,7 @@ const meta = {
 Заглушка або картинка, активна чи вимкнена (\`disabled\`). Hover (підкреслення назви) і focus-visible (контур) справжні: наведіть мишу або пройдіть клавішею Tab. Для вузького екрана є Viewport у тулбарі.
 
 ### Токени
-\`aspect-cover\`, \`rounded-panel\`, \`surface\`, \`ink\`, \`ink-muted\`, \`accent\`, \`font-display\`, \`font-body\`, \`text-card-title\`, \`text-body\`, \`text-caption\`. Відступи: \`gap-6\`, \`gap-4\`, \`gap-2\`.
+\`aspect-cover\`, \`rounded-card\`, \`surface\`, \`ink\`, \`ink-muted\`, \`accent\`, \`font-display\`, \`font-body\`, \`text-card-title\`, \`text-body\`, \`text-caption\`. Відступи: \`gap-6\`, \`gap-4\`, \`gap-2\`.
 
 ### Коли використовувати
 Для проєктів у блоці «Три проєкти» на головній. Ширину задає батьківський елемент: картка займає всю доступну ширину, пропорція обкладинки 5:6.
