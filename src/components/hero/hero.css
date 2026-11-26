@@ -116,8 +116,21 @@
 .contacts__email { font-weight: 600; }
 .contacts__link:hover, .contacts__email:hover { text-decoration: underline; }
 
+/* Scrim over the leaf photo, behind the location labels. It keeps the muted
+   labels at 4.5:1 or better on every pixel (Figma layer "Leaf strip shade").
+   Each artboard sets its own box and strength below. */
+.hero__leaf-shade {
+  left: 0; top: 150px; width: 190px; height: 230px;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--color-teal-900) 0%, transparent) 0%,
+    color-mix(in srgb, var(--color-teal-900) 80%, transparent) 17.39%,
+    color-mix(in srgb, var(--color-teal-900) 80%, transparent) 82.61%,
+    color-mix(in srgb, var(--color-teal-900) 0%, transparent) 100%
+  );
+}
+
 /* Pieces that only appear on smaller artboards */
-.hero__leaf-shade { display: none; }
 .location__row { display: contents; }
 .sep-narrow { display: none; }
 .btn-resume__short { display: none; }
@@ -153,6 +166,16 @@
     background: linear-gradient(to right, var(--color-teal-900) 0%, rgba(18, 62, 68, 0.9) 30%, rgba(18, 62, 68, 0) 56%);
   }
   .hero__leaf { top: 0; width: 120px; height: 666px; }
+  .hero__leaf-shade {
+    top: 130px; width: 120px; height: 240px;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--color-teal-900) 0%, transparent) 0%,
+      color-mix(in srgb, var(--color-teal-900) 80%, transparent) 16.67%,
+      color-mix(in srgb, var(--color-teal-900) 80%, transparent) 84.17%,
+      color-mix(in srgb, var(--color-teal-900) 0%, transparent) 100%
+    );
+  }
 
   .hero__header { left: 40px; top: 32px; width: 688px; height: 41px; }
   .brand { gap: 50px; }
@@ -186,8 +209,12 @@
   .hero__fade, .hero__rail, .hero__scroll { display: none; }
   .hero__leaf { top: 72px; width: 390px; height: 96px; }
   .hero__leaf-shade {
-    display: block; left: 0; top: 72px; width: 390px; height: 96px;
-    background: linear-gradient(to right, rgba(18, 62, 68, 0.72), rgba(18, 62, 68, 0.35));
+    top: 72px; width: 390px; height: 96px;
+    background: linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-teal-900) 90%, transparent),
+      color-mix(in srgb, var(--color-teal-900) 70%, transparent)
+    );
   }
 
   .hero__header { left: 20px; top: 16px; width: 350px; height: 38px; }
