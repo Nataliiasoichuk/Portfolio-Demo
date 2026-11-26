@@ -56,12 +56,20 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
     <div className="font-display text-display">UX/UI 2026</div>
   </div>
   <div>
+    <code>text-title</code> · font-display
+    <div className="font-display text-title">Projects</div>
+  </div>
+  <div>
     <code>text-heading</code> · font-display
     <div className="font-display text-heading">Portfolio Design</div>
   </div>
   <div>
     <code>text-lead</code> · font-display
     <div className="font-display text-lead">Never too late to design.</div>
+  </div>
+  <div>
+    <code>text-card-title</code> · font-display
+    <div className="font-display text-card-title">Group Fitness booking</div>
   </div>
   <div>
     <code>text-body</code> · font-body
@@ -85,6 +93,10 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
     <div className="rounded-control bg-canvas aspect-square w-full mt-2" />
   </div>
   <div>
+    <code>rounded-panel</code>
+    <div className="rounded-panel bg-canvas aspect-square w-full mt-2" />
+  </div>
+  <div>
     <code>rounded-card</code>
     <div className="rounded-card bg-canvas aspect-square w-full mt-2" />
   </div>
@@ -102,12 +114,24 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
   <div className="grid gap-2 justify-items-center"><div className="bg-accent size-8" /><code>8</code></div>
 </div>
 
+Великі кроки розкладки з макета (поза набором вище), тільки для відступів між частинами сторінки:
+
+- `section`: відступ згори й знизу великої секції.
+- `block`: відступ між шапкою секції та її вмістом.
+- `offset`: зсув середньої картки проєкту.
+
+Приклад: `py-section`, `mt-block`, `lg:mt-offset`.
+
 ## Пропорції картинок
 
 <div className="sb-unstyled grid grid-cols-8 gap-6" style={{ color: 'var(--color-canvas)' }}>
   <div>
     <code>aspect-portrait</code>
     <div className="aspect-portrait bg-canvas w-full mt-2 rounded-card" />
+  </div>
+  <div>
+    <code>aspect-cover</code>
+    <div className="aspect-cover bg-canvas w-full mt-2 rounded-panel" />
   </div>
   <div>
     <code>aspect-portrait-card</code>
@@ -121,6 +145,5 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 ## Чого ще немає
 
-- `aspect-cover` (обкладинка картки проєкту): пропорцію виміряємо, коли дійдемо до блоку «Три проєкти».
-- Відстань між великими секціями: на першому екрані її немає, виміряємо на другому.
-- Радіус 12 px (меню, плашка за підписами, портрет на телефоні) поки не токен: у `hero.css` він записаний числом.
+- Колір заглушки обкладинки (у Figma він трохи темніший за `surface`): заглушка тимчасова, її замінять справжні картинки.
+- Відстань між великими секціями задано `section` з макета другого екрана; для наступних екранів перевіримо.

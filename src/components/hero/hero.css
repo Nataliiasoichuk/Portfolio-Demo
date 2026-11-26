@@ -121,7 +121,7 @@
    On the phone it becomes a full-width band instead (see the phone artboard). */
 .hero__leaf-shade {
   left: 80px; top: 132px; width: 106px; height: 212px;
-  border-radius: 12px;
+  border-radius: var(--radius-panel);
   background: color-mix(in srgb, var(--color-canvas) 84%, transparent);
 }
 
@@ -144,7 +144,7 @@
 .menu {
   z-index: 5; top: 88px; right: 40px; min-width: 220px;
   display: flex; flex-direction: column; gap: 2px; padding: 10px;
-  background: var(--color-canvas); border: 1px solid var(--color-line); border-radius: 12px;
+  background: var(--color-canvas); border: 1px solid var(--color-line); border-radius: var(--radius-panel);
   box-shadow: 0 16px 40px rgba(4, 20, 22, 0.5);
 }
 .menu[hidden] { display: none; }
@@ -237,9 +237,9 @@
   .btn--secondary { padding: 15.5px 24px; }
 
   .portrait { left: 230px; top: 495px; width: 140px; height: 261px; }
-  .portrait__glass { border-radius: 12px; }
+  .portrait__glass { border-radius: var(--radius-panel); }
   .portrait__img, .portrait__shade, .portrait__sheen {
-    left: 7px; top: 7px; width: 125px; height: 246px; border-radius: 12px;
+    left: 7px; top: 7px; width: 125px; height: 246px; border-radius: var(--radius-panel);
   }
 
   .hero__footer-line { left: 20px; top: 936px; width: 350px; }

@@ -54,7 +54,7 @@ export default function Hero() {
   }, [menuOpen]);
 
   return (
-    <main className="hero">
+    <div className="hero">
       <DewAnimation />
       <div className="hero__fade" aria-hidden />
       <Image className="hero__leaf" src={leafStrip} alt="" priority />
@@ -174,6 +174,6 @@ export default function Hero() {
           </a>
         ))}
       </footer>
-    </main>
+    </div>
   );
 }

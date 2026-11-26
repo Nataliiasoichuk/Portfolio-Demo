@@ -40,6 +40,14 @@
   --text-heading--line-height: 1.1;
   --text-heading--letter-spacing: -0.01em;
   --text-heading--font-weight: 700;
+  --text-card-title: 22px;
+  --text-card-title--line-height: 1.25;
+  --text-card-title--letter-spacing: -0.01em;
+  --text-card-title--font-weight: 500;
+  --text-title: 72px;
+  --text-title--line-height: 1;
+  --text-title--letter-spacing: -0.02em;
+  --text-title--font-weight: 700;
   --text-display: 84px;
   --text-display--line-height: 1.1;
   --text-display--letter-spacing: -0.01em;
@@ -53,11 +61,13 @@
   --radius-*: initial;
   --radius-control: 8px; /* buttons, fields */
   --radius-card: 16px; /* cards, portrait */
+  --radius-panel: 12px; /* project cover, menu, label plate */
 
   /* Image proportions (width / height) */
   --aspect-*: initial;
   --aspect-portrait: 168 / 330; /* portrait photo */
   --aspect-portrait-card: 188 / 350; /* portrait with its glass frame */
+  --aspect-cover: 5 / 6; /* project cover (400 x 480) */
 
   /* Page content width */
   --container-*: initial;
@@ -65,6 +75,10 @@
 
   /* Spacing: 4px step. Allowed in components: 2, 3, 4, 6, 8 (8, 12, 16, 24, 32 px). */
   --spacing: 4px;
+  /* Layout steps from the Figma that are bigger than the component steps above */
+  --spacing-section: 112px; /* padding above and below a big section */
+  --spacing-block: 48px; /* between a section header and its content */
+  --spacing-offset: 64px; /* stagger of the middle project card */
 }
 
 html,
