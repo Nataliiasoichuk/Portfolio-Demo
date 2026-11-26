@@ -4,37 +4,123 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 # Tokens
 
-Значення беруться з блоку `@theme` у `src/app/globals.css`. Тут їх не дублюємо: сторінка читає змінні напряму.
+Значення беруться з блоку `@theme` у `src/app/globals.css`. Тут їх не дублюємо: сторінка читає змінні й класи напряму.
 
 ## Кольори
+
+За ролями. `surface` і `line` мають однакове значення: різниця між ними була непомітна (ΔE 2,4), тому лишили один відтінок.
 
 <ColorPalette>
   <ColorItem
     title="Colors"
     subtitle="--color-*"
     colors={{
-      'teal-900': 'var(--color-teal-900)',
-      'teal-700': 'var(--color-teal-700)',
-      cream: 'var(--color-cream)',
-      muted: 'var(--color-muted)',
-      gold: 'var(--color-gold)',
+      canvas: 'var(--color-canvas)',
+      surface: 'var(--color-surface)',
+      line: 'var(--color-line)',
+      accent: 'var(--color-accent)',
+      ink: 'var(--color-ink)',
+      'ink-muted': 'var(--color-ink-muted)',
+      danger: 'var(--color-danger)',
     }}
   />
 </ColorPalette>
 
+Контраст (мінімум 4,5:1 для тексту):
+
+- `ink`, `ink-muted`, `accent` на `canvas`: усі проходять.
+- На `surface` проходить лише `ink`. `ink-muted` і `accent` там нижче 4,5:1.
+- `danger` проходить на `canvas`. На `surface` ні: текст помилки лишаємо на `canvas`.
+- `danger` запропонований, на макеті помилки немає.
+
 ## Шрифти
 
-<div className="sb-unstyled" style={{ display: 'grid', gap: '16px', color: 'var(--color-teal-900)' }}>
+<div className="sb-unstyled grid gap-4" style={{ color: 'var(--color-canvas)' }}>
   <div>
-    <code>--font-display</code> (Space Grotesk)
-    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>UX/UI Portfolio Design 2026</div>
+    <code>font-display</code> (Space Grotesk)
+    <div className="font-display text-heading">UX/UI Portfolio Design 2026</div>
   </div>
   <div>
-    <code>--font-body</code> (Inter)
-    <div style={{ fontFamily: 'var(--font-body)' }}>Never too late to design. Ніколи не пізно проєктувати.</div>
+    <code>font-body</code> (Inter)
+    <div className="font-body text-body">Never too late to design. Ніколи не пізно проєктувати.</div>
   </div>
 </div>
 
-## Чого ще немає в `@theme`
+## Розміри тексту
 
-Радіуси, шкала розмірів тексту, відступи та пропорції картинок поки не оголошені як токени, тому тут їх немає. Їх додаємо разом із токенами дизайн-системи.
+Розмір, висота рядка, трекінг і жирність задані парами: клас `text-*` бере все разом.
+
+<div className="sb-unstyled grid gap-6" style={{ color: 'var(--color-canvas)' }}>
+  <div>
+    <code>text-display</code> · font-display
+    <div className="font-display text-display">UX/UI 2026</div>
+  </div>
+  <div>
+    <code>text-heading</code> · font-display
+    <div className="font-display text-heading">Portfolio Design</div>
+  </div>
+  <div>
+    <code>text-lead</code> · font-display
+    <div className="font-display text-lead">Never too late to design.</div>
+  </div>
+  <div>
+    <code>text-body</code> · font-body
+    <div className="font-body text-body">After 20+ years in international trade, I followed my lifelong love of design into UI/UX.</div>
+  </div>
+  <div>
+    <code>text-caption</code> · font-body
+    <div className="font-body text-caption">Full-time junior role · Remote, EET/UTC+2</div>
+  </div>
+  <div>
+    <code>text-logo</code> · font-display
+    <div className="font-display text-logo">NS.</div>
+  </div>
+</div>
+
+## Радіуси
+
+<div className="sb-unstyled grid grid-cols-8 gap-6" style={{ color: 'var(--color-canvas)' }}>
+  <div>
+    <code>rounded-control</code>
+    <div className="rounded-control bg-canvas aspect-square w-full mt-2" />
+  </div>
+  <div>
+    <code>rounded-card</code>
+    <div className="rounded-card bg-canvas aspect-square w-full mt-2" />
+  </div>
+</div>
+
+## Відступи
+
+Крок 4 px. У компонентах дозволені лише 2, 3, 4, 6 і 8 (це 8, 12, 16, 24 і 32 px).
+
+<div className="sb-unstyled flex items-end gap-6" style={{ color: 'var(--color-canvas)' }}>
+  <div className="grid gap-2 justify-items-center"><div className="bg-accent size-2" /><code>2</code></div>
+  <div className="grid gap-2 justify-items-center"><div className="bg-accent size-3" /><code>3</code></div>
+  <div className="grid gap-2 justify-items-center"><div className="bg-accent size-4" /><code>4</code></div>
+  <div className="grid gap-2 justify-items-center"><div className="bg-accent size-6" /><code>6</code></div>
+  <div className="grid gap-2 justify-items-center"><div className="bg-accent size-8" /><code>8</code></div>
+</div>
+
+## Пропорції картинок
+
+<div className="sb-unstyled grid grid-cols-8 gap-6" style={{ color: 'var(--color-canvas)' }}>
+  <div>
+    <code>aspect-portrait</code>
+    <div className="aspect-portrait bg-canvas w-full mt-2 rounded-card" />
+  </div>
+  <div>
+    <code>aspect-portrait-card</code>
+    <div className="aspect-portrait-card bg-canvas w-full mt-2 rounded-card" />
+  </div>
+</div>
+
+## Ширина контенту
+
+`max-w-page` задає ширину контенту сторінки на desktop.
+
+## Чого ще немає
+
+- `aspect-cover` (обкладинка картки проєкту): пропорцію виміряємо, коли дійдемо до блоку «Три проєкти».
+- Відстань між великими секціями: на першому екрані її немає, виміряємо на другому.
+- Радіус 12 px (меню, плашка за підписами, портрет на телефоні) поки не токен: у `hero.css` він записаний числом.
