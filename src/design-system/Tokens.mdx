@@ -1,0 +1,40 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
+
+<Meta title="Foundations/Tokens" />
+
+# Tokens
+
+Значення беруться з блоку `@theme` у `src/app/globals.css`. Тут їх не дублюємо: сторінка читає змінні напряму.
+
+## Кольори
+
+<ColorPalette>
+  <ColorItem
+    title="Colors"
+    subtitle="--color-*"
+    colors={{
+      'teal-900': 'var(--color-teal-900)',
+      'teal-700': 'var(--color-teal-700)',
+      cream: 'var(--color-cream)',
+      muted: 'var(--color-muted)',
+      gold: 'var(--color-gold)',
+    }}
+  />
+</ColorPalette>
+
+## Шрифти
+
+<div className="sb-unstyled" style={{ display: 'grid', gap: '16px', color: 'var(--color-teal-900)' }}>
+  <div>
+    <code>--font-display</code> (Space Grotesk)
+    <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700 }}>UX/UI Portfolio Design 2026</div>
+  </div>
+  <div>
+    <code>--font-body</code> (Inter)
+    <div style={{ fontFamily: 'var(--font-body)' }}>Never too late to design. Ніколи не пізно проєктувати.</div>
+  </div>
+</div>
+
+## Чого ще немає в `@theme`
+
+Радіуси, шкала розмірів тексту, відступи та пропорції картинок поки не оголошені як токени, тому тут їх немає. Їх додаємо разом із токенами дизайн-системи.
