@@ -12,7 +12,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 - Розмірів тексту: не більше 9 (зараз 8: п'ять базових і три додаткові з окремою роллю).
 - Радіусів: 2 (`control` і `card`).
 - Пропорцій: по одній на тип картинки (`portrait`, `cover`).
-- Відступів у компонентах: 8, 12, 16, 24, 32 px. Розкладка сторінки має три прийняті винятки: `section`, `block`, `offset`.
+- Відступів у компонентах: лише кроки з набору (числа класів 2, 3, 4, 6, 8). Розкладка сторінки має три прийняті винятки: `section`, `block`, `offset`.
 
 ## Кольори
 
@@ -64,11 +64,11 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 <div className="sb-unstyled grid gap-4" style={{ color: 'var(--color-canvas)' }}>
   <div>
-    <code>font-display</code> (Space Grotesk)
+    <span><code>font-display</code> (Space Grotesk)</span>
     <div className="font-display text-heading">UX/UI Portfolio Design 2026</div>
   </div>
   <div>
-    <code>font-body</code> (Inter)
+    <span><code>font-body</code> (Inter)</span>
     <div className="font-body text-body">Never too late to design. Ніколи не пізно проєктувати.</div>
   </div>
 </div>
@@ -79,35 +79,35 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 <div className="sb-unstyled grid gap-6" style={{ color: 'var(--color-canvas)' }}>
   <div>
-    <code>text-display</code> · font-display
+    <span><code>text-display</code> · font-display</span>
     <div className="font-display text-display">UX/UI 2026</div>
   </div>
   <div>
-    <code>text-title</code> · font-display
+    <span><code>text-title</code> · font-display</span>
     <div className="font-display text-title">Projects</div>
   </div>
   <div>
-    <code>text-heading</code> · font-display
+    <span><code>text-heading</code> · font-display</span>
     <div className="font-display text-heading">Portfolio Design</div>
   </div>
   <div>
-    <code>text-lead</code> · font-display
+    <span><code>text-lead</code> · font-display</span>
     <div className="font-display text-lead">Never too late to design.</div>
   </div>
   <div>
-    <code>text-card-title</code> · font-display
+    <span><code>text-card-title</code> · font-display</span>
     <div className="font-display text-card-title">Group Fitness booking</div>
   </div>
   <div>
-    <code>text-body</code> · font-body
+    <span><code>text-body</code> · font-body</span>
     <div className="font-body text-body">After 20+ years in international trade, I followed my lifelong love of design into UI/UX.</div>
   </div>
   <div>
-    <code>text-caption</code> · font-body
+    <span><code>text-caption</code> · font-body</span>
     <div className="font-body text-caption">Full-time junior role · Remote, EET/UTC+2</div>
   </div>
   <div>
-    <code>text-logo</code> · font-display
+    <span><code>text-logo</code> · font-display</span>
     <div className="font-display text-logo">NS.</div>
   </div>
 </div>
@@ -116,18 +116,18 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 <div className="sb-unstyled grid grid-cols-8 gap-6" style={{ color: 'var(--color-canvas)' }}>
   <div>
-    <code>rounded-control</code>
+    <span><code>rounded-control</code></span>
     <div className="rounded-control bg-canvas aspect-square w-full mt-2" />
   </div>
   <div>
-    <code>rounded-card</code>
+    <span><code>rounded-card</code></span>
     <div className="rounded-card bg-canvas aspect-square w-full mt-2" />
   </div>
 </div>
 
 ## Відступи
 
-Крок 4 px. У компонентах дозволені лише 2, 3, 4, 6 і 8 (це 8, 12, 16, 24 і 32 px).
+Крок задає змінна `--spacing`. У компонентах дозволені лише числа 2, 3, 4, 6 і 8 (наприклад, `p-4`, `gap-6`): квадрати нижче показують ці кроки.
 
 <div className="sb-unstyled flex items-end gap-6" style={{ color: 'var(--color-canvas)' }}>
   <div className="grid gap-2 justify-items-center"><div className="bg-accent size-2" /><code>2</code></div>
@@ -149,11 +149,11 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 <div className="sb-unstyled grid grid-cols-8 gap-6" style={{ color: 'var(--color-canvas)' }}>
   <div>
-    <code>aspect-portrait</code>
+    <span><code>aspect-portrait</code></span>
     <div className="aspect-portrait bg-canvas w-full mt-2 rounded-card" />
   </div>
   <div>
-    <code>aspect-cover</code>
+    <span><code>aspect-cover</code></span>
     <div className="aspect-cover bg-canvas w-full mt-2 rounded-card" />
   </div>
 </div>
