@@ -2,27 +2,47 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 
 <Meta title="Foundations/Tokens" />
 
-# Tokens
+# Токени
 
-Значення беруться з блоку `@theme` у `src/app/globals.css`. Тут їх не дублюємо: сторінка читає змінні й класи напряму.
+Єдине джерело значень — блок `@theme` у `src/app/globals.css`. Тут лише показ: значення беруться зі змінних CSS, тож сторінка завжди збігається з кодом. Назви токенів — за роллю, не за кольором. Стандартні кольори, розміри тексту й радіуси Tailwind скинуті: доступне тільки те, що є нижче.
 
 ## Кольори
 
-За ролями. `surface` і `line` мають однакове значення: різниця між ними була непомітна (ΔE 2,4), тому лишили один відтінок.
-
 <ColorPalette>
   <ColorItem
-    title="Colors"
-    subtitle="--color-*"
-    colors={{
-      canvas: 'var(--color-canvas)',
-      surface: 'var(--color-surface)',
-      line: 'var(--color-line)',
-      accent: 'var(--color-accent)',
-      ink: 'var(--color-ink)',
-      'ink-muted': 'var(--color-ink-muted)',
-      danger: 'var(--color-danger)',
-    }}
+    title="canvas"
+    subtitle="Фон сторінки · bg-canvas"
+    colors={{ canvas: 'var(--color-canvas)' }}
+  />
+  <ColorItem
+    title="surface"
+    subtitle="Поверхня: картки й панелі · bg-surface. Збігається з line (різниця непомітна, ΔE 2,4)"
+    colors={{ surface: 'var(--color-surface)' }}
+  />
+  <ColorItem
+    title="line"
+    subtitle="Розділювачі й лінії. Декор, не межа поля · border-line"
+    colors={{ line: 'var(--color-line)' }}
+  />
+  <ColorItem
+    title="accent"
+    subtitle="Основна кнопка, номери, посилання. Текст на ньому — тільки canvas · bg-accent"
+    colors={{ accent: 'var(--color-accent)' }}
+  />
+  <ColorItem
+    title="ink"
+    subtitle="Основний текст · text-ink"
+    colors={{ ink: 'var(--color-ink)' }}
+  />
+  <ColorItem
+    title="ink-muted"
+    subtitle="Приглушений текст, тільки на canvas · text-ink-muted"
+    colors={{ 'ink-muted': 'var(--color-ink-muted)' }}
+  />
+  <ColorItem
+    title="danger"
+    subtitle="Помилка: текст і межа поля, тільки на canvas · text-danger, border-danger. Запропонований: на макеті помилки немає"
+    colors={{ danger: 'var(--color-danger)' }}
   />
 </ColorPalette>
 
@@ -31,7 +51,6 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs/blocks';
 - `ink`, `ink-muted`, `accent` на `canvas`: усі проходять.
 - На `surface` проходить лише `ink`. `ink-muted` і `accent` там нижче 4,5:1.
 - `danger` проходить на `canvas`. На `surface` ні: текст помилки лишаємо на `canvas`.
-- `danger` запропонований, на макеті помилки немає.
 
 ## Шрифти
 
